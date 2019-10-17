@@ -54,7 +54,11 @@ public class LC_283_MoveZeroes {
     public void moveZeroes3(int[] nums) {
         int zeroIndex = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
+            if (nums[zeroIndex] != 0) {
+                zeroIndex++;
+                continue;
+            }
+            if (nums[i] != 0 && nums[zeroIndex] == 0) {
                 nums[zeroIndex++] = nums[i]; // 利用javap运算，减少代码量
                 nums[i] = 0;
             }

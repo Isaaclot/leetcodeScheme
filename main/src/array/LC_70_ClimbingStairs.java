@@ -57,4 +57,19 @@ public class LC_70_ClimbingStairs {
     }
 
 
+    public int climbStairs_twice_70(int n) {
+        if (n == 2) {
+            return 2;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        int p1 = 1, p2 = 2, dp = 3;
+        for (int i = 3; i < n + 1; i++) {
+            dp = p1 + p2;
+            p1 = p2;
+            p2 = dp;
+        }
+        return dp;
+    }
 }

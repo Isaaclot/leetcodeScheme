@@ -41,6 +41,21 @@ public class LC_15_ThreeSumTest {
         }
     }
 
+ @Test
+    public void threeSumDoublePointTest() {
+        List<List<Integer>> threeSumArrays = threeSum.threeSumDoublePoint(nums);
+        assertEquals(threeSumArrays.size(), 2);
+        for (List<Integer> sumArray : threeSumArrays) {
+            assertEquals(sumArray.stream().mapToInt(Integer::intValue).sum(), 0);
+        }
+
+        List<List<Integer>> threeSumLoopBoom = threeSum.threeSumDoublePoint(new int[]{0, 0, 0, 0});
+        assertEquals(threeSumLoopBoom.size(), 1);
+        for (List<Integer> sumArray : threeSumLoopBoom) {
+            assertEquals(sumArray.stream().mapToInt(Integer::intValue).sum(), 0);
+        }
+    }
+
 
 
 }

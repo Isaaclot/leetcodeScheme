@@ -1,8 +1,6 @@
 package array;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,4 +27,40 @@ public class LC_01_TwoSum {
         return new int[0];
     }
 
+    /**
+     * 两遍哈希法
+     * 将array 放在hashMap<num,index>中, 第一次遍历nums的时候，根据target - nums[i] 去判断是否在哈希表中
+     * 如果存在，则说明，有符合条件的两个数组，否则，继续遍历
+     */
+    public int[] twoSum2Hash(int[] nums, int target) {
+        Map<Integer, Integer> sum = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            sum.put(nums[i], i);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (sum.containsKey(target - nums[i]) && sum.get(target - nums[i]) != i) {
+                return new int[]{i, sum.get(target - nums[i])};
+            }
+        }
+        return new int[0];
+    }
+
+
+    /**
+     * 1遍哈希
+     * 遍历nums，
+     * 如果在哈希中有target-nums[i], 则返回 map.get(target-nums[i], i)
+     * 否则加入哈希表中 map.put(nums[i], i)
+     */
+    public int[] twoSum1Hash(int[] nums, int target) {
+        Map<Integer, Integer> numMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (numMap.containsKey(target - nums[i]) && numMap.get(target - nums[i]) != i) {
+                return new int[]{numMap.get(target - nums[i]), i};// 顺序相反，先加入哈希的值先返回
+            } else {
+                numMap.put(nums[i], i);
+            }
+        }
+        return new int[0];
+    }
 }

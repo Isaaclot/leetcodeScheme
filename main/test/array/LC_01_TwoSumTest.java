@@ -21,4 +21,17 @@ public class LC_01_TwoSumTest {
 
     }
 
+    @Test
+    public void twoSum2HashTest() {
+        assertArrayEquals(twoSum.twoSum2Hash(nums, 9), new int[]{0, 1});
+        assertArrayEquals(twoSum.twoSum2Hash(new int[]{3, 2, 4}, 6), new int[]{1, 2});
+    }
+
+    @Test
+    public void twoSum1HashTest() {
+        assertArrayEquals(twoSum.twoSum1Hash(new int[]{3, 2, 4}, 6), new int[]{1, 2});
+        assertArrayEquals(twoSum.twoSum1Hash(nums, 9), new int[]{0, 1});
+
+    }
+
 }

@@ -40,4 +40,37 @@ public class LC_429_NTreeLevelOrder {
         result.add(roots.stream().map(value -> value.val).collect(Collectors.toList()));
         _generateLevelOrder(level + 1, childRoots, result);
     }
+
+    /**
+     * 队列实现分层迭代
+     * 其实现方法与利用栈来辅助循环的方式类型，
+     * 不过队列实现的核心点在于每一层遍历开始处理之前，先将本层的待处理结点数记录，每处理一个结点，减少一个待处理计数
+     * 因为在本层处理的过程中，需要将结点的子结点入队，用于下一层处理
+     * 这样就可以在每一层遍历输出的时候，同时将下一层的所有结点都找到，存入队列
+     * 待本层待处理结点处理完毕，进入下一层处理下一层待处理的结点
+     * 如此迭代
+     */
+    public List<List<Integer>> levelOrderQueue(NTreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Queue<NTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int count = queue.size();
+            List<Integer> currentLayer = new ArrayList<>();
+            while (count-- > 0) {
+                NTreeNode node = queue.poll();
+                currentLayer.add(node.val);
+                if (null != node.children && !node.children.isEmpty()) {
+                    for (NTreeNode child : node.children) {
+                        queue.add(child);
+                    }
+                }
+            }
+            result.add(currentLayer);
+        }
+        return result;
+    }
 }

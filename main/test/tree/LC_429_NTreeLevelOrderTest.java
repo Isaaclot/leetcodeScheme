@@ -33,4 +33,19 @@ public class LC_429_NTreeLevelOrderTest {
         assertThat(levelResult, is(levelExcept));
 
     }
+
+    @Test
+    public void leverOrderQueueTest() {
+        NTreeNode node3 = new NTreeNode(3, Arrays.asList(new NTreeNode(5, Collections.emptyList()), new NTreeNode(6, Collections.emptyList())));
+        NTreeNode node2 = new NTreeNode(2, Collections.emptyList());
+        NTreeNode node4 = new NTreeNode(4, Collections.emptyList());
+        NTreeNode root = new NTreeNode(1, Arrays.asList(node3, node2, node4));
+        List<List<Integer>> levelResult = nTreeLevelOrder.levelOrderQueue(root);
+        List<List<Integer>> levelExcept = new ArrayList<>();
+        levelExcept.add(Collections.singletonList(1));
+        levelExcept.add(Arrays.asList(3, 2, 4));
+        levelExcept.add(Arrays.asList(5, 6));
+        assertThat(levelResult, is(levelExcept));
+
+    }
 }

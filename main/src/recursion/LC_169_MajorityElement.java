@@ -83,7 +83,7 @@ public class LC_169_MajorityElement {
      * 分治解法: 拆分左右
      */
     public int majorityElementDivide(int[] nums) {
-        return majorityElementRecur(nums, 0, nums.length-1);
+        return majorityElementRecur(nums, 0, nums.length - 1);
     }
 
     private int majorityElementRecur(int[] nums, int lo, int hi) {
@@ -108,6 +108,34 @@ public class LC_169_MajorityElement {
     }
 
     private int countInRange(int[] nums, int target, int lo, int hi) {
+        int count = 0;
+        for (int i = lo; i <= hi; i++) {
+            if (nums[i] == target) count++;
+        }
+        return count;
+    }
+
+    public int majorityElementDivide2(int[] nums) {
+        return majorityElementDivide2Recur(nums, 0, nums.length - 1);
+    }
+
+    /**
+     * 分治
+     */
+    private int majorityElementDivide2Recur(int[] nums, int lo, int hi) {
+        // terminator 分治切分子问题，最小粒度为每一段只有一个数值的时候，返回该子问题的众数,并以此作为最深纬度
+        if (lo == hi) {
+            return nums[lo];
+        }
+        // sub problems 子问题，将左右两边拆分为两个不同的子问题，分别求两边的众数，如果两边众数不一致，则统计这两边众数出现的个数
+        int mid = (hi - lo) / 2 + lo;
+        int left = majorityElementDivide2Recur(nums, lo, mid);
+        int right = majorityElementDivide2Recur(nums, mid + 1, hi);
+        if (left == right) return left;
+        return rangeCount2(nums, left, lo, hi) > rangeCount2(nums, right, lo, hi) ? left : right;
+    }
+
+    private int rangeCount2(int[] nums, int target, int lo, int hi) {
         int count = 0;
         for (int i = lo; i <= hi; i++) {
             if (nums[i] == target) count++;

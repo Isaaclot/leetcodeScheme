@@ -40,4 +40,10 @@ public class LC_169_MajorityElementTest {
         assertThat(majorityElement.majorityElementDivide(new int[]{1,8, 8, 7, 7, 7}), is(7));
         assertThat(majorityElement.majorityElementDivide(new int[]{2, 2, 1, 1, 1, 2, 2}), is(2));
     }
+
+    @Test
+    public void majorityElementDivide2Test() {
+        assertThat(majorityElement.majorityElementDivide2(new int[]{1,8, 8, 7, 7, 7}), is(7));
+        assertThat(majorityElement.majorityElementDivide2(new int[]{2, 2, 1, 1, 1, 2, 2}), is(2));
+    }
 }

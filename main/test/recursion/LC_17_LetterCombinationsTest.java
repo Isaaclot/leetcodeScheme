@@ -23,4 +23,10 @@ public class LC_17_LetterCombinationsTest {
         assertThat(lc_17_letterCombinations.letterCombinationConquer("23"), is(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf")));
         assertThat(lc_17_letterCombinations.letterCombinationConquer(""), is(Collections.emptyList()));
     }
+
+    @Test
+    public void letterCombinationsQueue(){
+        assertThat(lc_17_letterCombinations.letterCombinationQueue("23"), is(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf")));
+        assertThat(lc_17_letterCombinations.letterCombinationQueue(""), is(Collections.emptyList()));
+    }
 }

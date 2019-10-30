@@ -50,4 +50,27 @@ public class LC_17_LetterCombinations {
     }
 
 
+    /**
+     * info
+     * Success:
+     * Runtime:1 ms,faster than 98.87% of Java online submissions.
+     * Memory Usage:36.1 MB, less than 73.21% of Java online submissions.
+     */
+    public List<String> letterCombinationQueue(String digits) {
+        LinkedList<String> ans = new LinkedList<>();
+        if (null == digits || digits.isEmpty()) return ans;
+        String[] mapping = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        char[] digitalChars = digits.toCharArray();
+        ans.add("");
+        for (int level = 0; level < digitalChars.length; level++) {
+            int x = Character.getNumericValue(digitalChars[level]);
+            while (ans.peek().length() == level) {
+                String queueStart = ans.remove();
+                for (char newCs : mapping[x].toCharArray()) {
+                    ans.add(queueStart + newCs);
+                }
+            }
+        }
+        return ans;
+    }
 }

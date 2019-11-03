@@ -25,4 +25,16 @@ public class LC_69_MySqrt {
         }
         return (int) left;
     }
+
+    /**
+     * 牛顿迭代法
+     * https://leetcode-cn.com/problems/sqrtx/solution/er-fen-cha-zhao-niu-dun-fa-python-dai-ma-by-liweiw/
+     */
+    public int mySqrtNewTon(int x) {
+        long a = x;
+        while (a * a > x) {
+            a = (a + x / a) / 2;
+        }
+        return (int) a;
+    }
 }

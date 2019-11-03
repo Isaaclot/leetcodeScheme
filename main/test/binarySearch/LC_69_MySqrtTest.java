@@ -20,4 +20,11 @@ public class LC_69_MySqrtTest {
         assertThat(mySqrt.mySqrtBinarySearch(8), is(2));
         assertThat(mySqrt.mySqrtBinarySearch(2147395599), is(46339));
     }
+
+    @Test
+    public void mySqrtNewTonTest(){
+        assertThat(mySqrt.mySqrtNewTon(4), is(2));
+        assertThat(mySqrt.mySqrtNewTon(8), is(2));
+        assertThat(mySqrt.mySqrtNewTon(2147395599), is(46339));
+    }
 }

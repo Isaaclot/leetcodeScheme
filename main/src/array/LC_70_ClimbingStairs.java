@@ -72,4 +72,19 @@ public class LC_70_ClimbingStairs {
         }
         return dp;
     }
+
+    /**
+     * 爬楼梯
+     */
+    public int climbStairs_4Week(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+        int p1 = 1, p2 = 2, p3 = p1 + p2;
+        for (int i = 3; i <= n; i++) {
+            p3 = p1 + p2;
+            p1 = p2;
+            p2 = p3;
+        }
+        return p3;
+    }
 }

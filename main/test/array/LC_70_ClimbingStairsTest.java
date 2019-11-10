@@ -29,4 +29,10 @@ public class LC_70_ClimbingStairsTest {
         assertEquals(5, climbingStairs.climbStairs_twice_70(4));
         assertEquals(3, climbingStairs.climbStairs_twice_70(3));
     }
+
+    @Test
+    public void climbStairs_twice_4Week() {
+        assertEquals(5, climbingStairs.climbStairs_4Week(4));
+        assertEquals(3, climbingStairs.climbStairs_4Week(3));
+    }
 }

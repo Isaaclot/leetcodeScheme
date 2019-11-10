@@ -34,4 +34,11 @@ public class LC_01_TwoSumTest {
 
     }
 
+    @Test
+    public void twoSum1HashTest_4Week() {
+        assertArrayEquals(twoSum.twoSum4Week(new int[]{3, 2, 4}, 6), new int[]{1, 2});
+        assertArrayEquals(twoSum.twoSum4Week(nums, 9), new int[]{0, 1});
+
+    }
+
 }

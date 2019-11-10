@@ -63,4 +63,23 @@ public class LC_01_TwoSum {
         }
         return new int[0];
     }
+
+    /**
+     * 用两遍哈希
+     */
+    public int[] twoSum4Week(int[] nums, int target) {
+        if (nums.length == 0) return new int[0];
+        Map<Integer, Integer> hash = new HashMap<>();
+        // 第一遍哈希，先找出每个数所需要相加的数记录下来，并记录对应的下标
+        for (int i = 0; i < nums.length; i++) {
+            hash.put(target - nums[i], i);
+        }
+        // 第二遍哈希 找出当前数是否在数组中能找到想加起来结果为target的数
+        for (int i = 0; i < nums.length; i++) {
+            if (hash.containsKey(nums[i]) && hash.get(nums[i]) != i) {
+                return new int[]{i, hash.get(nums[i])};
+            }
+        }
+        return new int[0];
+    }
 }

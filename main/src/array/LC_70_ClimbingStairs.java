@@ -87,4 +87,19 @@ public class LC_70_ClimbingStairs {
         }
         return p3;
     }
+
+    /**
+     * 动态规划 dynamic programing
+     * 拆分子问题，求解每个子问题的答案: f(n) = f(n-1) + f(n-2)
+     */
+    public int climbStairs_DP(int n) {
+        if (n <= 2) return n;
+        int p1 = 1, p2 = 2, p3 = 3;
+        for (int i = 3; i <= n; i++) {
+            p3 = p1 + p2;
+            p1 = p2;
+            p2 = p3;
+        }
+        return p3;
+    }
 }

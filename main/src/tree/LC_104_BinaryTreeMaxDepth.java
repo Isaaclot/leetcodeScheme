@@ -24,7 +24,6 @@ public class LC_104_BinaryTreeMaxDepth {
             depth++;
             while (size-- > 0) {
                 TreeNode node = queue.poll();
-                System.out.println(node.val);
                 if (node.left != null) {
                     queue.add(node.left);
                 }

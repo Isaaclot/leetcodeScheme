@@ -23,4 +23,14 @@ public class LC_62_UniquePathsTest {
     public void uniquePathsDpVersion() {
         assertThat(uniquePathsService.uniquePathsDP(7, 3), is(28));
     }
+
+    @Test
+    public void uniquePathsDpVersion2() {
+        assertThat(uniquePathsService.uniquePathsDP2(7, 3), is(28));
+    }
+
+    @Test
+    public void uniquePathsDpVersionSimple1() {
+        assertThat(uniquePathsService.uniquePathsDpVersionSimple1(7, 3), is(28));
+    }
 }

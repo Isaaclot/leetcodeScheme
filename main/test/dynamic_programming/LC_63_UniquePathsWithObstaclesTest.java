@@ -16,17 +16,21 @@ public class LC_63_UniquePathsWithObstaclesTest {
 
     @Test
     public void testUniquePathsWithObstacles() {
-//        assertThat(uniquePathsWithObstaclesDomain.uniquePathsWithObstacles(new int[][]{
-//                {0, 0, 0},
-//                {0, 1, 0},
-//                {0, 0, 0}
-//        }), is(2));
-//
-//        assertThat(uniquePathsWithObstaclesDomain.uniquePathsWithObstacles(new int[][]{
-//                {1, 0}
-//        }), is(0));
+        assertThat(uniquePathsWithObstaclesDomain.uniquePathsWithObstacles(new int[][]{
+                {0, 0, 0},
+                {0, 1, 0},
+                {0, 0, 0}
+        }), is(2));
+
+        assertThat(uniquePathsWithObstaclesDomain.uniquePathsWithObstacles(new int[][]{
+                {1, 0}
+        }), is(0));
 
         assertThat(uniquePathsWithObstaclesDomain.uniquePathsWithObstacles(new int[][]
+                {{0, 0}, {1, 1}, {0, 0}}
+        ), is(0));
+
+        assertThat(uniquePathsWithObstaclesDomain.uniquePathsWithObstacles2(new int[][]
                 {{0, 0}, {1, 1}, {0, 0}}
         ), is(0));
     }

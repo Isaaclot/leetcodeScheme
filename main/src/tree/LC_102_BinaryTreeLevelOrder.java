@@ -54,4 +54,49 @@ public class LC_102_BinaryTreeLevelOrder {
         }
         return result;
     }
+
+    public List<List<Integer>> levelOrderQueue(TreeNode treeNode) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (treeNode == null) {
+            return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(treeNode);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> cur = new ArrayList<>();
+            while (size-- > 0) { // 遍历本层，直至计数器清空为止
+                TreeNode node = queue.poll();
+                cur.add(node.val);
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            result.add(cur);
+        }
+        return result;
+    }
+
+    public List<List<Integer>> levelOrderRecur2(TreeNode treeNode) {
+        List<List<Integer>> result = new ArrayList<>();
+        _helper(treeNode, 0, result);
+        return result;
+    }
+
+    private void _helper(TreeNode treeNode, int level, List<List<Integer>> result) {
+        // init 初始化
+        if (level == result.size()) {
+            result.add(new ArrayList<>());
+        }
+
+        // process current level
+        result.get(level).add(treeNode.val);
+
+        // drill down
+        if (null != treeNode.left)
+            _helper(treeNode.left, level + 1, result);
+        if (null != treeNode.right)
+            _helper(treeNode.right, level + 1, result);
+
+    }
+
 }

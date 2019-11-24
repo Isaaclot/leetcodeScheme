@@ -13,6 +13,8 @@ public class TrieNode {
 
     private boolean isEnd;
 
+    private String  val;
+
     public TrieNode() {
         this.links = new TrieNode[R];
     }
@@ -35,5 +37,13 @@ public class TrieNode {
 
     public void setEnd() {
         isEnd = true;
+    }
+
+    public String getVal() {
+        return val;
+    }
+
+    public void setVal(String val) {
+        this.val = val;
     }
 }

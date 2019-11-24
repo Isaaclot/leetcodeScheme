@@ -58,7 +58,7 @@ public class LC_212_WordSearch2 {
         findRecur(board, visited, i, j + 1, rows, column, result, cur);
         findRecur(board, visited, i - 1, j, rows, column, result, cur);
         findRecur(board, visited, i, j - 1, rows, column, result, cur);
-        // reset status
+        // reset status 最后要回退，因为下一个起点可能会用到上一个起点的字符
         visited[i][j] = false;
 
     }

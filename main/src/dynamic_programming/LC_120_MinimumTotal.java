@@ -58,4 +58,26 @@ public class LC_120_MinimumTotal {
         }
         return dp[0][0];
     }
+
+    /**
+     * dp: 二维数组
+     * 思路
+     * 自底向上，(i,j) = min((i+1,j), (i+1, j+1)) + (i,j)
+     * 由于需要求自顶向下顶最小路径之和，所以在dp过程中，还需要进行最优解计算min((i+1,j), (i+1, j+1))
+     */
+    public int minimumTotal3(List<List<Integer>> triangle) {
+        int rows = triangle.size();
+        int column = triangle.get(rows - 1).size();
+        int[][] dp = new int[rows][column];
+        for (int i = 0; i < column; i++) {
+            dp[rows - 1][i] = triangle.get(rows - 1).get(i);
+        }
+        for (int i = rows - 2; i >= 0; --i) {
+            for (int j = 0; j <= i; ++j) {
+                // 处理最优解
+                dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle.get(i).get(j);
+            }
+        }
+        return dp[0][0];
+    }
 }

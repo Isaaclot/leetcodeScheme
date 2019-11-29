@@ -24,4 +24,9 @@ public class LC_1143_LongestCommonSubsequenceTest {
         assertThat(lcs.longestCommonSubsequence2("abcde", "ace"), is(3));
     }
 
+    @Test
+    public void testLongestCommonSubsequence3() {
+        assertThat(lcs.longestCommonSubsequence3("abcde", "ace"), is(3));
+    }
+
 }

@@ -60,4 +60,29 @@ public class LC_1143_LongestCommonSubsequence {
         }
         return dp[t1.length][t2.length];
     }
+
+    /**
+     * dp
+     * 题意：求两个字符串的最长公共子序列长度
+     * 思路
+     * 将两个字符串转化为二维数组
+     * 将纵坐标与横坐标的各个子字符串进行对比，在对比过程中，求出最长公共子串(dp过程)
+     * dp方程
+     * dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     */
+    public int longestCommonSubsequence3(String text1, String text2) {
+        char[] t1 = text1.toCharArray();
+        char[] t2 = text2.toCharArray();
+        int[][] dp = new int[t1.length + 1][t2.length + 1];
+        for (int i = 1; i < t1.length + 1; i++) {
+            for (int j = 1; j < t2.length + 1; j++) {
+                if (t1[i - 1] == t2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+                }
+            }
+        }
+        return dp[t1.length][t2.length];
+    }
 }

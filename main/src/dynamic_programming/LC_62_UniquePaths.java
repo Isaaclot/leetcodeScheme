@@ -139,4 +139,29 @@ public class LC_62_UniquePaths {
         }
         return dp[n - 1];
     }
+
+    /**
+     * 题意：一个方格内，从左上走到右下角格子有多少种走法(只能往右或者往下走)
+     * 思路(dp特训)
+     * 1. 将问题拆分重复简单子问题：第(m.n)格子是从(m-1.n)和(m.n-1)格子走过来，路径统计是(m-1.n)和(m.n-1)的路径之和
+     * 2. 基础递推值：第(0,j)和(i,0)行/列，都只有一种走法，可以作为递推初始值
+     * 3. 得出状态转移方程: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     */
+    public int uniquePathsDP_review(int m, int n) {
+        int[][] dp = new int[m][n];
+        // 初始化
+        dp[0][0] = 1;
+        for (int i = 1; i < m; i++) {
+            dp[i][0] = dp[i - 1][0];
+        }
+        for (int j = 1; j < n; j++) {
+            dp[0][j] = dp[0][j - 1];
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            }
+        }
+        return dp[m - 1][n - 1];
+    }
 }

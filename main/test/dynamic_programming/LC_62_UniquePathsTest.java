@@ -40,4 +40,11 @@ public class LC_62_UniquePathsTest {
         assertThat(uniquePathsService.uniquePathsRecur2nd(7, 3), is(28));
         assertThat(uniquePathsService.uniquePathsDpSimple2nd(7, 3), is(28));
     }
+
+    @Test
+    public void uniquePathsDP_reviewTest() {
+        assertThat(uniquePathsService.uniquePathsDP_review(7, 3), is(28));
+        assertThat(uniquePathsService.uniquePathsDP_review(7, 3), is(28));
+        assertThat(uniquePathsService.uniquePathsDP_review(7, 3), is(28));
+    }
 }

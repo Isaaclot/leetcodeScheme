@@ -55,4 +55,51 @@ public class LC_94_InOrderTraversal {
         }
         return nums;
     }
+
+    /**
+     * 给定一个二叉树，要去以中序遍历的顺序输出 ： 左 -> 根 -> 右
+     */
+    public List<Integer> inOrderTraversalReverse2(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        if (root.left != null) {
+            result.addAll(inOrderTraversalReverse2(root.left));
+        }
+        result.add(root.val);
+        if (root.right != null) {
+            result.addAll(inOrderTraversalReverse2(root.right));
+        }
+        return result;
+    }
+
+
+    /**
+     * 迭代法进行中序遍历，利用栈，后进先出
+     * 左-根-右
+     */
+    public List<Integer> inOrderTraversal2(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            while (stack.peek().left != null) { // 从根节点找出所有左子阶段，并入栈
+                stack.add(stack.peek().left);
+            }
+            while (!stack.isEmpty()) { // 所有左子节点入栈之后，开始进行 出栈操作
+                TreeNode node = stack.pop();
+                result.add(node.val);
+                if (node.right != null) {
+                    // 如果出栈过程中，发现有节点存在右节点，则在输出当前根节点之后 ，
+                    // 再将当前根节点的右节点入栈，进入下一轮的所有左节点入栈，输出的过程
+                    // 如果右节点只有一个，并且出栈输出完成，则继续处理之前按照顺序入栈的左子节点
+                    stack.add(node.right);
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
 }

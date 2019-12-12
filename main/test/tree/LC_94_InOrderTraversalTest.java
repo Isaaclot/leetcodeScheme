@@ -41,6 +41,40 @@ public class LC_94_InOrderTraversalTest {
         Assert.assertArrayEquals(result, new int[]{1, 3, 2});
     }
 
+    /**
+     * 中序遍历：递归
+     */
+    @Test
+    public void inOrderTraversalReverse2Test() {
+        TreeNode root = new TreeNode(1);
+        TreeNode root2 = new TreeNode(2);
+        root2.left = new TreeNode(3);
+        root.right = root2;
+        List<Integer> nums = inOrderTraversal.inOrderTraversalReverse2(root);
+        int[] result = new int[nums.size()];
+        for (int i = 0; i < nums.size(); i++) {
+            result[i] = nums.get(i);
+        }
+        Assert.assertArrayEquals(result, new int[]{1, 3, 2});
+    }
+
+    /**
+     * 迭代法进行中序遍历
+     */
+    @Test
+    public void inOrderTraversalStack2Test() {
+        TreeNode root = new TreeNode(1);
+        TreeNode root2 = new TreeNode(2);
+        root2.left = new TreeNode(3);
+        root.right = root2;
+        List<Integer> nums = inOrderTraversal.inOrderTraversal2(root);
+        int[] result = new int[nums.size()];
+        for (int i = 0; i < nums.size(); i++) {
+            result[i] = nums.get(i);
+        }
+        Assert.assertArrayEquals(result, new int[]{1, 3, 2});
+    }
+
 }
 
 /**

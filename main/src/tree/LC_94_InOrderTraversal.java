@@ -102,4 +102,27 @@ public class LC_94_InOrderTraversal {
 
         return result;
     }
+
+    /**
+     * 中序遍历，迭代法
+     * 优化循环结构
+     */
+    public List<Integer> inOrderTraversal2Pretty(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            // 将所有左节点入栈
+            while (cur != null) {
+                stack.add(cur);
+                cur = cur.left;
+            }
+            // 只有cur为空，才能进入到整理
+            cur = stack.pop();
+            list.add(cur.val);
+            // 处理当前节点之后，对右节点进行入栈，如果右节点为空，则不会触发出栈取数逻辑
+            cur = cur.right;
+        }
+        return list;
+    }
 }

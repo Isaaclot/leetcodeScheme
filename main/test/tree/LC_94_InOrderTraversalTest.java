@@ -75,6 +75,23 @@ public class LC_94_InOrderTraversalTest {
         Assert.assertArrayEquals(result, new int[]{1, 3, 2});
     }
 
+    /**
+     * 迭代法进行中序遍历
+     */
+    @Test
+    public void inOrderTraversalStack2PrettyTest() {
+        TreeNode root = new TreeNode(1);
+        TreeNode root2 = new TreeNode(2);
+        root2.left = new TreeNode(3);
+        root.right = root2;
+        List<Integer> nums = inOrderTraversal.inOrderTraversal2Pretty(root);
+        int[] result = new int[nums.size()];
+        for (int i = 0; i < nums.size(); i++) {
+            result[i] = nums.get(i);
+        }
+        Assert.assertArrayEquals(result, new int[]{1, 3, 2});
+    }
+
 }
 
 /**

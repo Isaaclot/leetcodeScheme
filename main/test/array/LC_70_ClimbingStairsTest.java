@@ -47,4 +47,10 @@ public class LC_70_ClimbingStairsTest {
         assertEquals(5, climbingStairs.climbStairs_DP_review(4));
         assertEquals(3, climbingStairs.climbStairs_DP_review(3));
     }
+
+    @Test
+    public void climbStairs_DP_review_3rd() {
+        assertEquals(5, climbingStairs.climbStairs_DP_review_3rd(4));
+        assertEquals(3, climbingStairs.climbStairs_DP_review_3rd(3));
+    }
 }

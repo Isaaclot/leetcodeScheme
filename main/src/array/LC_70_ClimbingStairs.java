@@ -120,4 +120,21 @@ public class LC_70_ClimbingStairs {
         }
         return p3;
     }
+
+    /**
+     * DP解法
+     * 1. 将一个复杂问题，拆分为简单重复的子问题： 第n阶的是从第n-1阶或者第n-2阶楼梯上来，如果用统计第n阶，可以统计爬楼梯的人爬到第n-1阶和第n-2阶楼梯的不同走法之和
+     * 2. 自顶向下递推：第三阶是从第2阶或者第1阶走上来，第1阶的不同走法是1，第2阶的不同走法是2
+     * 3. 得出状态转移方程：f(n) = f(n-1) + f(n-2)
+     */
+    public int climbStairs_DP_review_3rd(int n) {
+        int p1 = 1, p2 = 2, p3 = 3;
+        if (n <= 2) return n;
+        for (int i = 3; i <= n; i++) {
+            p3 = p1 + p2;
+            p1 = p2;
+            p2 = p3;
+        }
+        return p3;
+    }
 }

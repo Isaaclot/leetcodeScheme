@@ -31,4 +31,13 @@ public class LC_64_MinPathSumTest {
                 {4, 2, 1}
         }), is(7));
     }
+
+    @Test
+    public void testMinPathSumDP_1_D() {
+        assertThat(minPathSumDomain.minPathSum_DP_1_D(new int[][]{
+                {1, 3, 1},
+                {1, 5, 1},
+                {4, 2, 1}
+        }), is(7));
+    }
 }

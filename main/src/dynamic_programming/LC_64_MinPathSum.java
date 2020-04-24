@@ -69,4 +69,25 @@ public class LC_64_MinPathSum {
         }
         return dp[rows - 1][column - 1];
     }
+
+    public int minPathSum_DP_1_D(int[][] grid) {
+        int row = grid.length;
+        int col = grid[0].length;
+        int[] dp = new int[col];
+        //init
+        dp[0] = grid[0][0];
+        for (int i = 1; i < col; i++) {
+            dp[i] = dp[i-1] + grid[0][i];
+        }
+        for (int i = 1; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (j==0) {
+                    dp[j] += grid[i][j];
+                } else {
+                    dp[j] = grid[i][j] + Math.min(dp[j], dp[j-1]);
+                }
+            }
+        }
+        return dp[col-1];
+    }
 }

@@ -8,7 +8,7 @@ import java.util.Queue;
  * @version 1.0
  * @since 2020/5/31
  */
-public class SymmetricTree {
+public class LC_101_SymmetricTree {
     public boolean isSymmetric(TreeNode treeRoot) {
         return isSymmetric(treeRoot, treeRoot);
     }

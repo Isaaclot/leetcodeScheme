@@ -11,11 +11,11 @@ import static org.junit.Assert.assertThat;
  * @version 1.0
  * @since 2020/5/31
  */
-public class SymmetricTreeTest {
+public class LC_101_LC101_SymmetricTreeTest {
 
     @Test
     public void should_is_symmetric_tree() {
-        SymmetricTree st = new SymmetricTree();
+        LC_101_SymmetricTree st = new LC_101_SymmetricTree();
         TreeNode treeRoot = new TreeNode(1);
         TreeNode left2 = new TreeNode(2);
         TreeNode right2 = new TreeNode(2);
@@ -30,7 +30,7 @@ public class SymmetricTreeTest {
 
     @Test
     public void should_is_symmetric_tree_loop() {
-        SymmetricTree st = new SymmetricTree();
+        LC_101_SymmetricTree st = new LC_101_SymmetricTree();
         TreeNode treeRoot = new TreeNode(1);
         TreeNode left2 = new TreeNode(2);
         TreeNode right2 = new TreeNode(2);
@@ -45,7 +45,7 @@ public class SymmetricTreeTest {
 
     @Test
     public void should_is_symmetric_tree_case_2() {
-        SymmetricTree st = new SymmetricTree();
+        LC_101_SymmetricTree st = new LC_101_SymmetricTree();
         TreeNode treeRoot = new TreeNode(2);
         TreeNode left2 = new TreeNode(3);
         TreeNode right2 = new TreeNode(3);
@@ -59,7 +59,7 @@ public class SymmetricTreeTest {
 
     @Test
     public void should_is_symmetric_tree_case_2_loop_queue() {
-        SymmetricTree st = new SymmetricTree();
+        LC_101_SymmetricTree st = new LC_101_SymmetricTree();
         TreeNode treeRoot = new TreeNode(2);
         TreeNode left2 = new TreeNode(3);
         TreeNode right2 = new TreeNode(3);

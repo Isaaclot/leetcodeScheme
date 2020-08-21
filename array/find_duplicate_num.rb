@@ -1,15 +1,11 @@
 def find_repeat_number(nums)
-  hs = Hash.new
-  nums.each { |item| 
-    if hs[item] == nil
-      hs[item] = 1  
-    else 
-      count = hs[item]
-      if count == 1
-        return item
-      end
+  hs = {}
+  nums.each { |e| 
+    count = hs.fetch(e) { |key| 0 }
+    if count == 1
+      return e
     end
-   }
-   -1
+    hs[e] = count + 1
+  }
+  -1
 end
-
